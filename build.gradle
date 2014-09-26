@@ -1,0 +1,70 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE")
+    }
+}
+
+ext {
+	cxfVersion = "3.0.1"
+    cxfArtifacts = [
+            'cxf-rt-frontend-jaxws',
+            'cxf-rt-frontend-jaxrs',
+            'cxf-rt-transports-http',
+            'cxf-rt-rs-client',
+            'cxf-rt-rs-service-description',
+    ]
+}
+    
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+eclipse {  
+	project {
+		natures 'org.springframework.ide.eclipse.core.springnature'
+		natures 'org.springsource.ide.eclipse.gradle.core.nature'
+	}
+	  
+	wtp {
+		facet {	
+			facets = facets
+			facet name: 'jst.web', version: '3.0'
+			facet name: 'jst.java', version: '1.7'
+		}
+	}
+}
+
+war {
+	baseName = 'projA-webservice'
+	version = '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    cxfArtifacts.each { artifact ->
+        compile "org.apache.cxf:$artifact:$cxfVersion"
+    }
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
