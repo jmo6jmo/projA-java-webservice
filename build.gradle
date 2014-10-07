@@ -5,12 +5,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.7.RELEASE")
     }
 }
 
 ext {
-	cxfVersion = "3.0.1"
+    cxfVersion = "3.0.1"
     cxfArtifacts = [
             'cxf-rt-frontend-jaxws',
             'cxf-rt-frontend-jaxrs',
