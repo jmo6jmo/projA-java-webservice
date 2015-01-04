@@ -1,4 +1,4 @@
-package com.projA.restservice;
+package com.projA.webservice.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -11,11 +11,13 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	
-	<bean id="helloWorldBean" class="com.projA.restservice.HelloWorld" />
+	<bean id="helloWorldBean" class="com.projA.webservice.rest.HelloWorld" />
+	<bean id="testMongoDB" class="com.projA.webservice.rest.TestMongoDB" />
 	
-	<jaxrs:server id="restService" address="/restservice">
+	<jaxrs:server id="rest" address="/rest">
 		<jaxrs:serviceBeans>
 			<ref bean="helloWorldBean" />
+			<ref bean="testMongoDB" />
 		</jaxrs:serviceBeans>
 	</jaxrs:server>
 </beans>

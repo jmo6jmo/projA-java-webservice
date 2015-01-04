@@ -1,4 +1,4 @@
-package com.projA;
+package com.projA.webservice;
 
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.builder.SpringApplicationBuilder;

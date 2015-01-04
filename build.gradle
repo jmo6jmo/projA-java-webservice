@@ -58,11 +58,21 @@ configurations {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.jmo.projA:projA-jpa:0.1.0")
+    runtime("org.springframework:spring-instrument-tomcat")
     cxfArtifacts.each { artifact ->
         compile "org.apache.cxf:$artifact:$cxfVersion"
     }
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testCompile("junit:junit")
+}
+
+task copyLibs(type: Copy) {
+	from configurations.runtime {
+		include 'spring-instrument-4.0.7.RELEASE.jar'
+		include 'projA-jpa-0.1.0.jar'
+	}
+	into 'lib'
 }
 
 task wrapper(type: Wrapper) {

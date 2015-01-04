@@ -1,4 +1,4 @@
-package com.projA.hello;
+package com.projA.webservice.hello;
 
 public class Greeting {
 	private final long id;

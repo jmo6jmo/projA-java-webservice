@@ -1,4 +1,4 @@
-package com.projA.hello;
+package com.projA.webservice.hello;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
