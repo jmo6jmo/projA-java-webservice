@@ -14,7 +14,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.util.ClassUtils;
 
 import com.projA.jpa.example.Test;
-import com.projA.jpa.model.*;
 
 @Configuration
 @ComponentScan("com.projA")
@@ -34,10 +33,10 @@ public class Application {
 //	@Bean
 //	public LocalContainerEntityManagerFactoryBean cemf() {
 //		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-//		em.setPersistenceUnitName("projA-java-jpa");
+//		em.setPersistenceUnitName("projA-java-jpa-test");
 //		// Not needed but to be specific which LoadTimeWeaver is used
 //		em.setLoadTimeWeaver(new org.springframework.context.weaving.DefaultContextLoadTimeWeaver(ClassUtils.getDefaultClassLoader()));
-//		em.setPackagesToScan(new String[] { "com.projA.jpa.model" });
+//		em.setPackagesToScan(new String[] { "com.projA.jpa.testmodel" });
 //  		return em;
 //  }
 //	
